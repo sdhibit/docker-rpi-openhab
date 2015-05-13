@@ -38,6 +38,20 @@ RUN set -x \
  && chown -R openhab:openhab "${APP_HOME}" "${APP_CONFIG}" "${APP_DATA}" "${APP_LOG}" \
  && rm -rf /tmp/*
 
+ENV HABMIN_VERSION 0.1.3
+ENV HABMIN_BASEURL https://github.com/cdjackson/HABmin/releases/download
+ENV HABMIN_URL ${HABMIN_BASEURL}/${HABMIN_VERSION}-snapshot/habmin.zip
+
+# Install HABmin
+RUN set -x \
+ && mkdir -p /tmp/habmin \
+ && wget -O /tmp/habmin.zip "${HABMIN_URL}" \
+ && unzip -o -d /tmp/habmin /tmp/habmin.zip \
+ && mv /tmp/habmin/webapps/habmin "${APP_HOME}/webapps/" \
+ && mv /tmp/habmin/addons/org.openhab.io.habmin* "${APP_HOME}/addons/" \
+ && cp "${APP_HOME}"/addons-available/org.openhab.binding.zwave* "${APP_HOME}"/addons/\ 
+ && rm -rf /tmp/*
+
 ADD openhab-launcher.sh "${APP_HOME}"/openhab-launcher.sh
 ADD openhab-service.sh /etc/service/openhab/run
 
