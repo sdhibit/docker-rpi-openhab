@@ -46,14 +46,9 @@ fi
 
 if [ -f ${APP_CONFIG}/greent/settings.cfg ]
 then
-  echo TouchUI settings exist
-else
-  mkdir -p ${APP_CONFIG}/greent
-  mv ${UI_SOURCE}/configs/settings.cfg ${APP_CONFIG}/greent/
+  rm -f ${UI_SOURCE}/configs/settings.cfg
+  cp -f ${APP_CONFIG}/greent/settings.cfg ${UI_SOURCE}/configs/settings.cfg
 fi
-cp -f ${APP_CONFIG}/greent/settings.cfg ${UI_SOURCE}/configs/settings.cfg
-#rm -f ${UI_SOURCE}/configs/settings.cfg  
-#ln -s ${APP_CONFIG}/greent/settings.cfg ${UI_SOURCE}/configs/settings.cfg
 
 ###########################################
 # Download Demo if no configuration is given

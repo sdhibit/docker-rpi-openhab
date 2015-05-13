@@ -47,10 +47,6 @@ JAVA_ARGS_DEFAULT="-Dosgi.clean=true \
  -configuration "${APP_DATA}/workspace" \
  -console ${TELNET_PORT}"
 
-# -Dsmarthome.userdata="${APP_DATA}" \
-#  -data "${APP_LIB}/workspace" \
-# -configuration "${APP_LIB}/workspace"
-
 JAVA_ARGS_DUMB="
  -Dopenhab.configfile="${OPENHAB_CONF_DIR}/configurations/openhab.cfg" \
  -Dopenhab.configdir="${OPENHAB_CONF_DIR}/configurations" \
