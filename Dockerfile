@@ -56,4 +56,4 @@ ADD openhab-launcher.sh "${APP_HOME}"/openhab-launcher.sh
 ADD openhab-service.sh /etc/service/openhab/run
 
 EXPOSE 8080 8443 5555
-VOLUME ["/etc/openhab"]
+VOLUME ["${APP_CONFIG}", "${APP_LOG}"]
