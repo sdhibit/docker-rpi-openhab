@@ -22,7 +22,7 @@ ENV APP_BASEURL https://github.com/openhab/openhab/releases/download/v${APP_VERS
 RUN set -x \
  && groupadd -r -g 300 openhab \
  && useradd -r -u 300 -g openhab openhab \
- && mkdir -p "${APP_HOME}" "${APP_DATA}" "${APP_LOG}" \
+ && mkdir -p "${APP_HOME}" "${APP_CONFIG}" "${APP_DATA}" "${APP_LOG}" \
  && mkdir -p "${APP_HOME}/lib" "${APP_HOME}/addons-available" \
  && mkdir -p "${APP_DATA}/workspace" \
  && wget -O /tmp/runtime.zip "${APP_BASEURL}"-runtime.zip \
@@ -33,7 +33,7 @@ RUN set -x \
  && unzip -o -d "${APP_HOME}/addons-available" /tmp/addons.zip \
  && unzip -o -d "${APP_HOME}/demo" /tmp/demo-configuration.zip \
  && unzip -o -d "${APP_HOME}/webapps/" /tmp/greent.zip \
- && mv "${APP_HOME}"/configurations "${APP_CONFIG}"/defaults \
+ && mv "${APP_HOME}"/configurations "${APP_HOME}"/defaults \
  && ln -s "${APP_CONFIG}" "${APP_HOME}"/configurations \ 
  && chown -R openhab:openhab "${APP_HOME}" "${APP_CONFIG}" "${APP_DATA}" "${APP_LOG}" \
  && rm -rf /tmp/*

@@ -5,12 +5,11 @@
 
 if [ "$(ls -A ${APP_CONFIG})" ]
 then
+  echo "Configuration directory not empty"
+else
   echo "Configuration directory empty. Copying defaults"
   cp -a "${APP_HOME}/defaults/." "${APP_CONFIG}/"
-else
-  echo "Configuration directory not empty"
 fi
-
 
 ###########################
 # Configure Addon libraries
