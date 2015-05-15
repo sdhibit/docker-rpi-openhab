@@ -33,7 +33,7 @@ RUN set -x \
  && unzip -o -d "${APP_HOME}/addons-available" /tmp/addons.zip \
  && unzip -o -d "${APP_HOME}/demo" /tmp/demo-configuration.zip \
  && unzip -o -d "${APP_HOME}/webapps/" /tmp/greent.zip \
- && mv "${APP_HOME}"/configurations "${APP_CONFIG}"/ \
+ && mv "${APP_HOME}"/configurations "${APP_CONFIG}"/defaults \
  && ln -s "${APP_CONFIG}" "${APP_HOME}"/configurations \ 
  && chown -R openhab:openhab "${APP_HOME}" "${APP_CONFIG}" "${APP_DATA}" "${APP_LOG}" \
  && rm -rf /tmp/*

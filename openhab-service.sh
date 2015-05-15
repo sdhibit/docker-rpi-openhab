@@ -1,6 +1,18 @@
 #!/bin/bash
 
 ###########################
+# Check for contents in Configu directory
+
+if [ "$(ls -A ${APP_CONFIG})" ]
+then
+  echo "Configuration directory empty. Copying defaults"
+  cp -a "${APP_HOME}/defaults/." "${APP_CONFIG}/"
+else
+  echo "Configuration directory not empty"
+fi
+
+
+###########################
 # Configure Addon libraries
 
 ADDON_SOURCE=$APP_HOME/addons-available
