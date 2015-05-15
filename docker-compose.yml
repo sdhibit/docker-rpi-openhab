@@ -10,6 +10,5 @@ openhab:
    - "8080:8080"
    - "8443:8443"
    - "5555:5555"
-  net: "host"
   restart: always
   
