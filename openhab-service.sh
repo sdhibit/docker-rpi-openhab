@@ -78,7 +78,7 @@ else
   echo --------------------------------------------------------
   cp -R ${APP_HOME}/demo/configurations/* ${APP_CONFIG}/
   ln -s ${APP_HOME}/demo/addons/* ${APP_HOME}/addons/
-  ln -s ${APP_CONFIG}/openhab_default.cfg ${APP_CONFIG}/openhab.cfg
+  cp ${APP_CONFIG}/openhab_default.cfg ${APP_CONFIG}/openhab.cfg
 fi
 
 chown -R openhab:openhab ${APP_HOME}
